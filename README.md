@@ -10,8 +10,6 @@ Coded by - [Waleed Baig](https://www.linkedin.com/in/waleed-baig-808a6aa5/) | [W
 
 A portfolio for a web designer. We used React js to make this portfolio. A clean design with full responsiveness. You will find this portfolio very professional. Also, we added smooth scroll in the portfolio which will make the scroll experience really elegant.
 
-
-
 ## Project Requirement
 
 1. HTML, CSS
@@ -26,7 +24,6 @@ A portfolio for a web designer. We used React js to make this portfolio. A clean
 - Swiper js
 - React Transition Group
 - Smooth Scrollbar
--
 - React Router Dom
 - More...
 
