@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import emailjs from "emailjs-com";
+import React from 'react';
 import styled from 'styled-components';
 
 const FormStyle = styled.form`
@@ -39,53 +40,61 @@ const FormStyle = styled.form`
   }
 `;
 
-export default function ContactForm() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  return (
-    <>
-      <FormStyle>
-        <form action="https://formsubmit.co/wtbaig@gmail.com" method="POST" />
 
-        <div className="form-group">
-          <label htmlFor="name">
+export default function ContactUs() {
+
+    function sendEmail(e) {
+        e.preventDefault();
+
+    emailjs.sendForm('gmail', 'template_vqwy04s', e.target, 'user_8q8PENB6FEZQR94PP1GTg')
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
+        e.target.reset()
+    }
+
+    return(
+        <div>
+          <FormStyle>
+            <div className="form-group">
+            <form onSubmit={sendEmail}>
+            <label htmlFor="name">
             Your Name
             <input
               type="text"
               id="name"
               name="name"
               value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </label>
-        </div>
-        <div className="form-group">
-          <label htmlFor="email">
+              onChange={(e) => setName(e.target.value)}/>
+              </label>
+            </div>
+            <div className="form-group">
+            <label htmlFor="email">
             Your Email
             <input
               type="email"
               id="email"
               name="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </label>
-        </div>
-        <div className="form-group">
-          <label htmlFor="message">
+              onChange={(e) => setEmail(e.target.value)}/>
+            </label>
+            </div>
+            <div className="form-group">
+            <label htmlFor="message">
             Your message
             <textarea
               type="text"
               id="message"
               name="message"
               value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            />
-          </label>
-        </div>
-        <button type="submit">Send</button>
-      </FormStyle>
-    </>
-  );
+              onChange={(e) => setMessage(e.target.value)}/>
+            </label>
+            </div>
+            <button type="submit">Send</button>  
+            </form>
+            </div>
+            </FormStyle>
+        );
 }
