@@ -46,6 +46,8 @@ export default function ContactForm() {
   return (
     <>
       <FormStyle>
+        <form action="https://formsubmit.co/wtbaig@gmail.com" method="POST" />
+
         <div className="form-group">
           <label htmlFor="name">
             Your Name
